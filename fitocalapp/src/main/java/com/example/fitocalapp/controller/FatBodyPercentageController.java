@@ -1,7 +1,7 @@
 package com.example.fitocalapp.controller;
 
-import com.example.fitocalapp.domain.FatBodyPercentage;
-import com.example.fitocalapp.dto.FatBodyPercentageDto;
+import com.example.fitocalapp.dto.request.RequestFatBodyPercentageDto;
+import com.example.fitocalapp.dto.response.ResponseFatBodyPercentageDto;
 import com.example.fitocalapp.service.FatBodyPercentageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +18,10 @@ public class FatBodyPercentageController {
     }
 
     @GetMapping("/getFatBodyPercentage")
-    public FatBodyPercentage getFatBodyPercentage(@RequestBody FatBodyPercentageDto fatBodyPercentageDto) {
+    public ResponseFatBodyPercentageDto getFatBodyPercentage(@RequestBody RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         log.info("Calculating Fat Body Percentage");
 
-        return fatBodyPercentageService.calculateFatBodyPercentage(fatBodyPercentageDto);
+        return fatBodyPercentageService.calculateFatBodyPercentage(requestFatBodyPercentageDto);
     }
 
 }

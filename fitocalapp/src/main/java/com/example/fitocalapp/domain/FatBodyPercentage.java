@@ -12,4 +12,5 @@ public class FatBodyPercentage {
     private double weight;
     private Integer age;
     private String gender;
+    private FatBodyPercentageFormula fatBodyPercentageFormula;
 }

@@ -1,18 +1,20 @@
 package com.example.fitocalapp.assembler;
 
-import com.example.fitocalapp.domain.FatBodyPercentage;
-import com.example.fitocalapp.dto.FatBodyPercentageDto;
+import com.example.fitocalapp.domain.Bmi;
+import com.example.fitocalapp.dto.request.RequestFatBodyPercentageDto;
+import com.example.fitocalapp.dto.response.ResponseFatBodyPercentageDto;
 
 public class FatBodyPercentageAssembler {
 
-    public FatBodyPercentage assembleFatBodyPercentage(FatBodyPercentageDto fatBodyPercentageDto){
-        FatBodyPercentage fatBodyPercentage = new FatBodyPercentage();
+    public ResponseFatBodyPercentageDto assembleFatBodyPercentage(RequestFatBodyPercentageDto requestFatBodyPercentageDto, Bmi bmi, double fatBodyPercentageValue) {
+        ResponseFatBodyPercentageDto responseFatBodyPercentageDto = new ResponseFatBodyPercentageDto();
 
-        fatBodyPercentage.setHeight(fatBodyPercentageDto.getHeight());
-        fatBodyPercentage.setWeight(fatBodyPercentageDto.getWeight());
-        fatBodyPercentage.setAge(fatBodyPercentageDto.getAge());
-        fatBodyPercentage.setGender(fatBodyPercentageDto.getGender());
+        responseFatBodyPercentageDto.setAge(requestFatBodyPercentageDto.getAge());
+        responseFatBodyPercentageDto.setGender(requestFatBodyPercentageDto.getGender());
+        responseFatBodyPercentageDto.setBmi(bmi);
+        responseFatBodyPercentageDto.setFatBodyPercentageFormula(null);
+        responseFatBodyPercentageDto.setFatBodyPercentageValue(fatBodyPercentageValue);
 
-        return fatBodyPercentage;
+        return responseFatBodyPercentageDto;
     }
 }
