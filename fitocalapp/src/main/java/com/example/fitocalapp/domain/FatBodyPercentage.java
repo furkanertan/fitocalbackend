@@ -8,10 +8,10 @@ import lombok.ToString;
 @Getter
 @Setter
 public class FatBodyPercentage {
-    private double height;
-    private double weight;
     private Integer age;
-    private String gender;
-    private FatBodyPercentageFormula fatBodyPercentageFormula;
+    private Gender gender;
     private double fatBodyPercentage;
+    private FatBodyPercentageFormula fatBodyPercentageFormula;
+    private FatBodyPercentageType fatBodyPercentageType;
+    private Bmi bmi;
 }

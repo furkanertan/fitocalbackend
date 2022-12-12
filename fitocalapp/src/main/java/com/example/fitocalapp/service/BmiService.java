@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class BmiService {
 
-    private final BmiAssembler bmiAssembler;
+    private BmiAssembler bmiAssembler;
 
     public Bmi calculateBmi(double height, double weight) {
         return bmiAssembler.assembleBmi(height, weight);

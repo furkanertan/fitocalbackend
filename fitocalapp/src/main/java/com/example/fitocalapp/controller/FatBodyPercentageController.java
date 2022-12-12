@@ -2,7 +2,6 @@ package com.example.fitocalapp.controller;
 
 import com.example.fitocalapp.domain.FatBodyPercentage;
 import com.example.fitocalapp.dto.request.RequestFatBodyPercentageDto;
-import com.example.fitocalapp.dto.response.ResponseFatBodyPercentageDto;
 import com.example.fitocalapp.service.FatBodyPercentageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,10 +21,10 @@ public class FatBodyPercentageController {
     }
 
     @GetMapping("/getFatBodyPercentage")
-    public ResponseFatBodyPercentageDto getFatBodyPercentage(@RequestBody RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
+    public FatBodyPercentage getFatBodyPercentage(@RequestBody RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         log.info("Calculating Fat Body Percentage");
 
-        return fatBodyPercentageService.calculateFatBodyPercentage(requestFatBodyPercentageDto);
+        return fatBodyPercentageService.calculateFatBodyPercentageByDeurenbergFormula(requestFatBodyPercentageDto);
     }
 
     @GetMapping("/calculateFatBodyPercentageByDeurenberg")
@@ -49,14 +48,14 @@ public class FatBodyPercentageController {
         return fatBodyPercentageService.calculateFatBodyPercentageByGallagherFormula(requestFatBodyPercentageDto);
     }
 
-    @GetMapping("/calculateFatBodyPercentageByGallagher")
+    @GetMapping("/calculateFatBodyPercentageByJacksonPollock")
     public FatBodyPercentage getFatBodyPercentageByJacksonPollock(@RequestBody RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         log.info("Calculating Fat Body Percentage by Jackson Pollock");
 
         return fatBodyPercentageService.calculateFatBodyPercentageByJacksonPollockFormula(requestFatBodyPercentageDto);
     }
 
-    @GetMapping("/calculateFatBodyPercentageByGallagher")
+    @GetMapping("/calculateFatBodyPercentageByJacksonAs")
     public FatBodyPercentage getFatBodyPercentageByJacksonAs(@RequestBody RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         log.info("Calculating Fat Body Percentage by Jackson As");
 

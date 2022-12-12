@@ -4,13 +4,12 @@ import com.example.fitocalapp.assembler.FatBodyPercentageAssembler;
 import com.example.fitocalapp.domain.Bmi;
 import com.example.fitocalapp.domain.FatBodyPercentage;
 import com.example.fitocalapp.dto.request.RequestFatBodyPercentageDto;
-import com.example.fitocalapp.dto.response.ResponseFatBodyPercentageDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import static com.example.fitocalapp.domain.FatBodyPercentageFormula.DEURENBERG_FORMULA;
-import static com.example.fitocalapp.domain.GenderMultipliers.FEMALE;
-import static com.example.fitocalapp.domain.GenderMultipliers.MALE;
+import static com.example.fitocalapp.domain.Gender.FEMALE;
+import static com.example.fitocalapp.domain.Gender.MALE;
 
 @Service
 @AllArgsConstructor
@@ -19,40 +18,34 @@ public class FatBodyPercentageService {
     private FatBodyPercentageAssembler fatBodyPercentageAssembler;
     private BmiService bmiService;
 
-    public ResponseFatBodyPercentageDto calculateFatBodyPercentage(RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
-        Bmi bmi = bmiService.calculateBmi(requestFatBodyPercentageDto.getHeight(), requestFatBodyPercentageDto.getWeight());
-        double fatBodyPercentage = calculateDeurenbergFormula(requestFatBodyPercentageDto, bmi);
-        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, bmi, fatBodyPercentage);
-    }
-
     public FatBodyPercentage calculateFatBodyPercentageByDeurenbergFormula(RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         Bmi bmi = bmiService.calculateBmi(requestFatBodyPercentageDto.getHeight(), requestFatBodyPercentageDto.getWeight());
         double fatBodyPercentage = calculateDeurenbergFormula(requestFatBodyPercentageDto, bmi);
-        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage);
+        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage, bmi);
     }
 
     public FatBodyPercentage calculateFatBodyPercentageByDeurenbergFormula2(RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         Bmi bmi = bmiService.calculateBmi(requestFatBodyPercentageDto.getHeight(), requestFatBodyPercentageDto.getWeight());
         double fatBodyPercentage = calculateDeurenbergFormula2(requestFatBodyPercentageDto, bmi);
-        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage);
+        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage, bmi);
     }
 
     public FatBodyPercentage calculateFatBodyPercentageByGallagherFormula(RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         Bmi bmi = bmiService.calculateBmi(requestFatBodyPercentageDto.getHeight(), requestFatBodyPercentageDto.getWeight());
         double fatBodyPercentage = calculateGallagherFormula(requestFatBodyPercentageDto, bmi);
-        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage);
+        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage, bmi);
     }
 
     public FatBodyPercentage calculateFatBodyPercentageByJacksonPollockFormula(RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         Bmi bmi = bmiService.calculateBmi(requestFatBodyPercentageDto.getHeight(), requestFatBodyPercentageDto.getWeight());
         double fatBodyPercentage = calculateJacksonPollockFormula(requestFatBodyPercentageDto, bmi);
-        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage);
+        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage, bmi);
     }
 
     public FatBodyPercentage calculateFatBodyPercentageByJacksonAsFormula(RequestFatBodyPercentageDto requestFatBodyPercentageDto) {
         Bmi bmi = bmiService.calculateBmi(requestFatBodyPercentageDto.getHeight(), requestFatBodyPercentageDto.getWeight());
         double fatBodyPercentage = calculateJacksonAsFormula(requestFatBodyPercentageDto, bmi);
-        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage);
+        return fatBodyPercentageAssembler.assembleFatBodyPercentage(requestFatBodyPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage, bmi);
     }
 
     private double calculateDeurenbergFormula(RequestFatBodyPercentageDto requestFatBodyPercentageDto, Bmi bmi) {

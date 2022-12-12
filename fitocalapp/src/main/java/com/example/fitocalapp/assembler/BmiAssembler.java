@@ -1,7 +1,9 @@
 package com.example.fitocalapp.assembler;
 
 import com.example.fitocalapp.domain.Bmi;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BmiAssembler {
 
     public Bmi assembleBmi(double height, double weight) {
