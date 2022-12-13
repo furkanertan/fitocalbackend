@@ -1,5 +1,8 @@
 package com.example.fitocalapp.domain;
 
+import com.example.fitocalapp.domain.enums.FatBodyPercentageFormula;
+import com.example.fitocalapp.domain.enums.FatBodyPercentageType;
+import com.example.fitocalapp.domain.enums.Gender;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

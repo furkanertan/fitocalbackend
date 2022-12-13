@@ -7,9 +7,9 @@ import com.example.fitocalapp.dto.request.RequestFatBodyPercentageDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import static com.example.fitocalapp.domain.FatBodyPercentageFormula.DEURENBERG_FORMULA;
-import static com.example.fitocalapp.domain.Gender.FEMALE;
-import static com.example.fitocalapp.domain.Gender.MALE;
+import static com.example.fitocalapp.domain.enums.FatBodyPercentageFormula.DEURENBERG_FORMULA;
+import static com.example.fitocalapp.domain.enums.Gender.FEMALE;
+import static com.example.fitocalapp.domain.enums.Gender.MALE;
 
 @Service
 @AllArgsConstructor
@@ -69,6 +69,6 @@ public class FatBodyPercentageService {
     }
 
     private double getGenderMultiplier(String gender) {
-        return MALE.getGender().equals(gender) ? MALE.getMultiplier() : FEMALE.getMultiplier();
+        return MALE.getGender().equals(gender) ? MALE.getFatBodyPercentageMultiplier() : FEMALE.getFatBodyPercentageMultiplier();
     }
 }

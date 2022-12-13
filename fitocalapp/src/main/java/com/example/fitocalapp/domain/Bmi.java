@@ -1,5 +1,6 @@
 package com.example.fitocalapp.domain;
 
+import com.example.fitocalapp.domain.enums.BmiType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

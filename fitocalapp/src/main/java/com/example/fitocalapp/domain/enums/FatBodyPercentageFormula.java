@@ -1,4 +1,4 @@
-package com.example.fitocalapp.domain;
+package com.example.fitocalapp.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
