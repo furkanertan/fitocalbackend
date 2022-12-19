@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum FatBodyPercentageType {
+public enum BodyFatPercentageType {
     ESSENTIAL_FAT_MALE("M", "Essential Fat", 2, 5),
     ESSENTIAL_FAT_FEMALE("F", "Essential Fat", 10, 13),
     ATHLETES_MALE("M", "Athletes", 6, 13),
@@ -18,35 +18,35 @@ public enum FatBodyPercentageType {
     OBESE_FEMALE("F", "Obese", 32, Integer.MAX_VALUE);
 
     private final String gender;
-    private final String fatBodyPercentageType;
-    private final Integer minFatBodyPercentage;
-    private final Integer maxFatBodyPercentage;
+    private final String bodyFatPercentageType;
+    private final Integer minBodyFatPercentage;
+    private final Integer maxBodyFatPercentage;
 
-    public static FatBodyPercentageType getFatBodyPercentage(String gender, double fatBodyPercentage) {
+    public static BodyFatPercentageType getBodyFatPercentage(String gender, double bodyFatPercentage) {
         if ("M".equals(gender)) {
-            if (fatBodyPercentage >= 2 && fatBodyPercentage <= 5) {
+            if (bodyFatPercentage >= 2 && bodyFatPercentage <= 5) {
                 return ESSENTIAL_FAT_MALE;
-            } else if (fatBodyPercentage >= 6 && fatBodyPercentage <= 13) {
+            } else if (bodyFatPercentage >= 6 && bodyFatPercentage <= 13) {
                 return ATHLETES_MALE;
-            } else if (fatBodyPercentage >= 14 && fatBodyPercentage <= 17) {
+            } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 17) {
                 return FIT_MALE;
-            } else if (fatBodyPercentage >= 18 && fatBodyPercentage <= 24) {
+            } else if (bodyFatPercentage >= 18 && bodyFatPercentage <= 24) {
                 return AVERAGE_MALE;
-            } else if (fatBodyPercentage >= 25) {
+            } else if (bodyFatPercentage >= 25) {
                 return OBESE_MALE;
             } else {
                 return null;
             }
         } else {
-            if (fatBodyPercentage >= 10 && fatBodyPercentage <= 13) {
+            if (bodyFatPercentage >= 10 && bodyFatPercentage <= 13) {
                 return ESSENTIAL_FAT_FEMALE;
-            } else if (fatBodyPercentage >= 14 && fatBodyPercentage <= 20) {
+            } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 20) {
                 return ATHLETES_FEMALE;
-            } else if (fatBodyPercentage >= 21 && fatBodyPercentage <= 24) {
+            } else if (bodyFatPercentage >= 21 && bodyFatPercentage <= 24) {
                 return FIT_FEMALE;
-            } else if (fatBodyPercentage >= 25 && fatBodyPercentage <= 31) {
+            } else if (bodyFatPercentage >= 25 && bodyFatPercentage <= 31) {
                 return AVERAGE_FEMALE;
-            } else if (fatBodyPercentage >= 32) {
+            } else if (bodyFatPercentage >= 32) {
                 return OBESE_FEMALE;
             } else {
                 return null;

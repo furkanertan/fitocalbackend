@@ -10,7 +10,7 @@ public enum Gender {
     FEMALE("F", 0.00, -161, 447.593);
 
     private final String gender;
-    private final double fatBodyPercentageMultiplier;
+    private final double bodyFatPercentageMultiplier;
     private final double dailyCalorieMultiplierMifflin;
     private final double dailyCalorieMultiplierHarrisBenedict;
 

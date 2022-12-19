@@ -7,7 +7,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class RequestFatBodyPercentageDto {
+public class RequestBodyFatPercentageDto {
     private double height;
     private double weight;
     private Integer age;
