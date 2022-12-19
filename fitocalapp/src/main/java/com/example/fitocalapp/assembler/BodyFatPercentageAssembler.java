@@ -12,14 +12,14 @@ import static com.example.fitocalapp.domain.enums.Gender.getGender;
 @Component
 public class BodyFatPercentageAssembler {
 
-    public BodyFatPercentage assembleBodyFatPercentage(RequestBodyFatPercentageDto requestBodyFatPercentageDto, BodyFatPercentageFormula bodyFatPercentageFormula, double fatBodyPercentageValue, Bmi bmi) {
+    public BodyFatPercentage assembleBodyFatPercentage(RequestBodyFatPercentageDto requestBodyFatPercentageDto, BodyFatPercentageFormula bodyFatPercentageFormula, double bodyFatPercentageValue, Bmi bmi) {
         BodyFatPercentage bodyFatPercentage = new BodyFatPercentage();
 
         bodyFatPercentage.setAge(requestBodyFatPercentageDto.getAge());
         bodyFatPercentage.setGender(getGender(requestBodyFatPercentageDto.getGender()));
         bodyFatPercentage.setBodyFatPercentageFormula(bodyFatPercentageFormula);
-        bodyFatPercentage.setBodyFatPercentage(fatBodyPercentageValue);
-        bodyFatPercentage.setBodyFatPercentageType(BodyFatPercentageType.getBodyFatPercentage(requestBodyFatPercentageDto.getGender(), fatBodyPercentageValue));
+        bodyFatPercentage.setBodyFatPercentage(bodyFatPercentageValue);
+        bodyFatPercentage.setBodyFatPercentageType(BodyFatPercentageType.getBodyFatPercentage(requestBodyFatPercentageDto.getGender(), bodyFatPercentageValue));
         bodyFatPercentage.setBmi(bmi);
 
         return bodyFatPercentage;

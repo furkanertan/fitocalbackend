@@ -44,8 +44,8 @@ public class BodyFatPercentageService {
 
     public BodyFatPercentage calculateBodyFatPercentageByJacksonAsFormula(RequestBodyFatPercentageDto requestBodyFatPercentageDto) {
         Bmi bmi = bmiService.calculateBmi(requestBodyFatPercentageDto.getHeight(), requestBodyFatPercentageDto.getWeight());
-        double fatBodyPercentage = calculateJacksonAsFormula(requestBodyFatPercentageDto, bmi);
-        return bodyFatPercentageAssembler.assembleBodyFatPercentage(requestBodyFatPercentageDto, DEURENBERG_FORMULA, fatBodyPercentage, bmi);
+        double bodyFatPercentage = calculateJacksonAsFormula(requestBodyFatPercentageDto, bmi);
+        return bodyFatPercentageAssembler.assembleBodyFatPercentage(requestBodyFatPercentageDto, DEURENBERG_FORMULA, bodyFatPercentage, bmi);
     }
 
     private double calculateDeurenbergFormula(RequestBodyFatPercentageDto requestBodyFatPercentageDto, Bmi bmi) {
