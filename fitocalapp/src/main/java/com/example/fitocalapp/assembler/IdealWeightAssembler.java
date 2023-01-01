@@ -8,15 +8,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class IdealWeightAssembler {
 
-    public IdealWeight assembleIdealWeight(RequestIdealWeightDto requestIdealWeightDto, double idealWeightValue) {
+    public IdealWeight assembleIdealWeight(IdealWeightFormula formula, double idealWeightValue) {
         IdealWeight idealWeight = new IdealWeight();
 
-        idealWeight.setAge(requestIdealWeightDto.getAge());
-        idealWeight.setHeight(requestIdealWeightDto.getHeight());
-        idealWeight.setGender(requestIdealWeightDto.getGender());
         idealWeight.setIdealWeight(idealWeightValue);
-        idealWeight.setFormula(IdealWeightFormula.fromCode(requestIdealWeightDto.getFormula()));
+        idealWeight.setFormula(formula.getName());
 
         return idealWeight;
+    }
+
+    public RequestIdealWeightDto assembleRequestDto(Integer age, double height, String gender){
+        RequestIdealWeightDto requestIdealWeightDto = new RequestIdealWeightDto();
+
+        requestIdealWeightDto.setAge(age);
+        requestIdealWeightDto.setHeight(height);
+        requestIdealWeightDto.setGender(gender);
+
+        return requestIdealWeightDto;
     }
 }

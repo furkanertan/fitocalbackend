@@ -11,5 +11,4 @@ public class RequestIdealWeightDto {
     private Integer age;
     private double height;
     private String gender;
-    private String formula;
 }

@@ -13,13 +13,4 @@ public enum IdealWeightFormula {
 
     private final String code;
     private final String name;
-
-    public static IdealWeightFormula fromCode(String code) {
-        for (IdealWeightFormula formula : IdealWeightFormula.values()) {
-            if (formula.getCode().equals(code)) {
-                return formula;
-            }
-        }
-        return null;
-    }
 }
