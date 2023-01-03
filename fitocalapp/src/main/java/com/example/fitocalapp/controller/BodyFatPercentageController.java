@@ -4,10 +4,8 @@ import com.example.fitocalapp.domain.BodyFatPercentage;
 import com.example.fitocalapp.dto.request.RequestBodyFatPercentageDto;
 import com.example.fitocalapp.service.BodyFatPercentageService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -20,11 +18,11 @@ public class BodyFatPercentageController {
         this.bodyFatPercentageService = bodyFatPercentageService;
     }
 
-    @GetMapping("/getBodyFatPercentage")
-    public BodyFatPercentage getBodyFatPercentage(@RequestBody RequestBodyFatPercentageDto requestBodyFatPercentageDto) {
+    @PostMapping("/getBodyFatPercentage")
+    public ResponseEntity<BodyFatPercentage> getBodyFatPercentage(@RequestBody RequestBodyFatPercentageDto requestBodyFatPercentageDto) {
         log.info("Calculating Body Fat Percentage");
 
-        return bodyFatPercentageService.calculateBodyFatPercentageByDeurenbergFormula(requestBodyFatPercentageDto);
+        return ResponseEntity.ok(bodyFatPercentageService.calculateBodyFatPercentageByDeurenbergFormula(requestBodyFatPercentageDto));
     }
 
     @GetMapping("/calculateBodyFatPercentageByDeurenberg")

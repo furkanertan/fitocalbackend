@@ -4,6 +4,7 @@ import com.example.fitocalapp.domain.DailyCalorie;
 import com.example.fitocalapp.dto.request.RequestDailyCalorieDto;
 import com.example.fitocalapp.service.DailyCalorieService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,9 +22,9 @@ public class DailyCalorieController {
     }
 
     @GetMapping("/calculateDailyCalorie")
-    public DailyCalorie calculateDailyCalorie(@RequestBody RequestDailyCalorieDto requestDailyCalorieDto) {
+    public ResponseEntity<DailyCalorie> calculateDailyCalorie(@RequestBody RequestDailyCalorieDto requestDailyCalorieDto) {
         log.info("Calculating daily calorie");
 
-        return dailyCalorieService.calculateDailyCalorie(requestDailyCalorieDto);
+        return ResponseEntity.ok(dailyCalorieService.calculateDailyCalorie(requestDailyCalorieDto));
     }
 }

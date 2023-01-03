@@ -36,6 +36,10 @@ public class IdealWeightService {
         return idealWeightList;
     }
 
+    public IdealWeight calculateIdealWeightByRobinson(RequestIdealWeightDto requestIdealWeightDto) {
+        return idealWeightAssembler.assembleIdealWeight(ROBINSON, getByRobinson(requestIdealWeightDto.getGender(), requestIdealWeightDto.getHeight()));
+    }
+
     private double getByRobinson(String gender, double height) {
         return "M".equals(gender) ? 52 + (1.9 * ((height - 152.4) * INC_CONVERT_VALUE)) :
                 49 + (1.7 * ((height - 152.4) * INC_CONVERT_VALUE));
