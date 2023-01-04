@@ -55,8 +55,32 @@ public enum Exercises {
     PULL_UP_INTERMEDIATE(42, "Pull Up", "Back", "Intermediate", 3, 15, "Pull Up"),
     LAT_PULL_DOWN_INTERMEDIATE(43, "Lat Pull Down", "Back", "Intermediate", 3, 15, "Lat Pull Down"),
 
-    BURPEE(44, "Burpee", "Cardio", "Advanced", 3, 25, "Burpee"),
-    LUNGES(45, "Lunges", "Cardio", "Advanced", 3, 25, "Lunges");
+    BURPEE(44, "Burpee", "Cardio", "Advanced", 4, 20, "Burpee"),
+    LUNGES(45, "Lunges", "Cardio", "Advanced", 4, 20, "Lunges"),
+    INCHWORM(46, "Inchworm", "Cardio", "Advanced", 4, 20, "Inchworm"),
+    PLANK_JACK(47, "Plank Jack", "Cardio", "Advanced", 4, 20, "Plank Jack"),
+    ROMANIAN_DEADLIFT(48, "Romanian Deadlift", "Leg", "Advanced", 4, 15, "Romanian Deadlift"),
+    SPLIT_SQUAT(49, "Split Squat", "Leg", "Advanced", 4, 15, "Split Squat"),
+    SINGLE_LEG_DEADLIFT(50, "Single Leg Deadlift", "Leg", "Advanced", 4, 15, "Single Leg Deadlift"),
+    SINGLE_LEG_CALF_RAISE(51, "Single Leg Calf Raise", "Leg", "Advanced", 4, 15, "Single Leg Calf Raise"),
+    CABLE_SHRUG(52, "Cable Shrug", "Shoulder", "Advanced", 4, 15, "Cable Shrug"),
+    PUSH_PRESS(53, "Push Press", "Shoulder", "Advanced", 4, 15, "Push Press"),
+    ARNOLD_PRESS(54, "Arnold Press", "Shoulder", "Advanced", 4, 15, "Arnold Press"),
+    SEATED_LAT_RAISE(55, "Seated Lat Raise", "Shoulder", "Advanced", 4, 15, "Seated Lat Raise"),
+    CONCENTRATION_CURL(56, "Concentration Curl", "Biceps", "Advanced", 4, 15, "Concentration Curl"),
+    DUMBBELL_HAMMER_CURL_ADVANCED(57, "Dumbbell Hammer Curl", "Biceps", "Advanced", 4, 15, "Dumbbell Hammer Curl"),
+    DUMBBELL_PREACHER_CURL_ADVANCED(58, "Dumbbell Preacher Curl", "Biceps", "Advanced", 4, 15, "Dumbbell Preacher Curl"),
+    DIPS(59, "Dips", "Triceps", "Advanced", 4, 15, "Dips"),
+    ROPE_PRESS_DOWN(60, "Rope Press Down", "Triceps", "Advanced", 4, 15, "Rope Press Down"),
+    SKULL_CRUSHER(61, "Skull Crusher", "Triceps", "Advanced", 4, 15, "Skull Crusher"),
+    HIGH_CABLE_CROSSOVER(62, "High Cable Crossover", "Chest", "Advanced", 4, 15, "High Cable Crossover"),
+    LOW_CABLE_CROSSOVER(63, "Low Cable Crossover", "Chest", "Advanced", 4, 15, "Low Cable Crossover"),
+    BENCH_PRESS_ADVANCED(64, "Bench Press", "Chest", "Advanced", 4, 15, "Bench Press"),
+    INCLINE_BENCH_PRESS_ADVANCED(65, "Incline Bench Press", "Chest", "Advanced", 4, 15, "Incline Bench Press"),
+    CHEST_FLY(66, "Chest Fly", "Chest", "Advanced", 4, 15, "Chest Fly"),
+    PULL_UP_ADVANCED(67, "Pull Up", "Back", "Advanced", 4, 15, "Pull Up"),
+    LAT_PULL_DOWN_ADVANCED(68, "Lat Pull Down", "Back", "Advanced", 4, 15, "Lat Pull Down"),
+    SEATED_ROW_ADVANCED(69, "Seated Row", "Back", "Advanced", 4, 15, "Seated Row");
 
     private final int id;
     private final String name;

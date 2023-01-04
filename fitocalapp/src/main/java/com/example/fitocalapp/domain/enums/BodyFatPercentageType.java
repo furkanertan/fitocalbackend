@@ -24,15 +24,15 @@ public enum BodyFatPercentageType {
 
     public static BodyFatPercentageType getBodyFatPercentage(String gender, double bodyFatPercentage) {
         if ("M".equals(gender)) {
-            if (bodyFatPercentage >= 2 && bodyFatPercentage <= 5) {
+            if (bodyFatPercentage >= 2 && bodyFatPercentage <= 9) {
                 return ESSENTIAL_FAT_MALE;
-            } else if (bodyFatPercentage >= 6 && bodyFatPercentage <= 13) {
+            } else if (bodyFatPercentage > 9 && bodyFatPercentage <= 17) {
                 return ATHLETES_MALE;
-            } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 17) {
+            } else if (bodyFatPercentage > 17 && bodyFatPercentage <= 21) {
                 return FIT_MALE;
-            } else if (bodyFatPercentage >= 18 && bodyFatPercentage <= 24) {
+            } else if (bodyFatPercentage > 21 && bodyFatPercentage <= 28) {
                 return AVERAGE_MALE;
-            } else if (bodyFatPercentage >= 25) {
+            } else if (bodyFatPercentage > 28) {
                 return OBESE_MALE;
             } else {
                 return null;
@@ -40,13 +40,13 @@ public enum BodyFatPercentageType {
         } else {
             if (bodyFatPercentage >= 10 && bodyFatPercentage <= 13) {
                 return ESSENTIAL_FAT_FEMALE;
-            } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 20) {
+            } else if (bodyFatPercentage > 13 && bodyFatPercentage <= 20) {
                 return ATHLETES_FEMALE;
-            } else if (bodyFatPercentage >= 21 && bodyFatPercentage <= 24) {
+            } else if (bodyFatPercentage > 20 && bodyFatPercentage <= 24) {
                 return FIT_FEMALE;
-            } else if (bodyFatPercentage >= 25 && bodyFatPercentage <= 31) {
+            } else if (bodyFatPercentage > 24 && bodyFatPercentage <= 31) {
                 return AVERAGE_FEMALE;
-            } else if (bodyFatPercentage >= 32) {
+            } else if (bodyFatPercentage > 31) {
                 return OBESE_FEMALE;
             } else {
                 return null;

@@ -10,6 +10,8 @@ import com.example.fitocalapp.dto.request.RequestGeneralBodyReportDto;
 import com.example.fitocalapp.dto.request.RequestIdealWeightDto;
 import org.springframework.stereotype.Component;
 
+import java.text.DecimalFormat;
+
 @Component
 public class GeneralBodyReportAssembler {
 
@@ -55,14 +57,14 @@ public class GeneralBodyReportAssembler {
         generalBodyReport.setHeight(requestGeneralBodyReportDto.getHeight());
         generalBodyReport.setWeight(requestGeneralBodyReportDto.getWeight());
         generalBodyReport.setIdealWeight(idealWeight.getIdealWeight());
-        generalBodyReport.setBmi(bodyFatPercentage.getBmi());
+        generalBodyReport.setBmi(Double.parseDouble(new DecimalFormat("##.#").format(bodyFatPercentage.getBmi())));
         generalBodyReport.setBodyType(bodyFatPercentage.getType().getBodyFatPercentageType());
-        generalBodyReport.setBodyFatPercentageRate(bodyFatPercentage.getBodyFatPercentageRate());
-        generalBodyReport.setBodyFatMass(bodyFatPercentage.getBodyFatMass());
-        generalBodyReport.setLeanBodyMass(bodyFatPercentage.getLeanBodyMass());
-        generalBodyReport.setCalorieToStaySame(dailyCalorie.getMaintainWeight());
-        generalBodyReport.setCalorieToLoseWeight(dailyCalorie.getWeightLoss());
-        generalBodyReport.setCalorieToGainWeight(dailyCalorie.getWeightGain());
+        generalBodyReport.setBodyFatPercentageRate(Double.parseDouble(new DecimalFormat("##.#").format(bodyFatPercentage.getBodyFatPercentageRate())));
+        generalBodyReport.setBodyFatMass(Double.parseDouble(new DecimalFormat("##.#").format(bodyFatPercentage.getBodyFatMass())));
+        generalBodyReport.setLeanBodyMass(Double.parseDouble(new DecimalFormat("##.#").format(bodyFatPercentage.getLeanBodyMass())));
+        generalBodyReport.setCalorieToStaySame(Double.parseDouble(new DecimalFormat("##.#").format(dailyCalorie.getMaintainWeight())));
+        generalBodyReport.setCalorieToLoseWeight(Double.parseDouble(new DecimalFormat("##.#").format(dailyCalorie.getWeightLoss())));
+        generalBodyReport.setCalorieToGainWeight(Double.parseDouble(new DecimalFormat("##.#").format(dailyCalorie.getWeightGain())));
 
         return generalBodyReport;
     }

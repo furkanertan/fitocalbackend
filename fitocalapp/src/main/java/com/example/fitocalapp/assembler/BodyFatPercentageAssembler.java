@@ -18,7 +18,7 @@ public class BodyFatPercentageAssembler {
         bodyFatPercentage.setType(BodyFatPercentageType.getBodyFatPercentage(requestBodyFatPercentageDto.getGender(), bodyFatPercentageValue));
         bodyFatPercentage.setBmi(bmi.getBmi());
         bodyFatPercentage.setBodyFatMass(bmi.getBmi() * bodyFatPercentageValue / 100);
-        bodyFatPercentage.setLeanBodyMass(bmi.getBmi() - bodyFatPercentage.getBodyFatMass());
+        bodyFatPercentage.setLeanBodyMass(bodyFatPercentageValue - bodyFatPercentage.getBodyFatMass());
 
         return bodyFatPercentage;
     }
