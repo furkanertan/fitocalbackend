@@ -16,6 +16,7 @@ public class RecommendedExercisesAssembler {
 
         for (Exercises exercise : exerciseList) {
             RecommendedExercises recommendedExercise = new RecommendedExercises();
+            recommendedExercise.setId(exercise.getId());
             recommendedExercise.setName(exercise.getName());
             recommendedExercise.setType(exercise.getType());
             recommendedExercise.setLevel(exercise.getLevel());

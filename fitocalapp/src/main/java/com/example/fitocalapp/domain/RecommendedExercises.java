@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class RecommendedExercises {
+    private int id;
     private String name;
     private String type;
     private String level;

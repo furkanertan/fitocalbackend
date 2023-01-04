@@ -13,7 +13,7 @@ public class GeneralBodyReport {
     private double height;
     private double weight;
     private double bmi;
-    private String bmiBodyType;
+    private String bodyType;
     private double idealWeight;
     private double bodyFatPercentageRate;
     private double bodyFatMass;

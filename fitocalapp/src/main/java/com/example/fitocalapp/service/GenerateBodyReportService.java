@@ -16,7 +16,6 @@ public class GenerateBodyReportService {
     private BodyFatPercentageService bodyFatPercentageService;
     private DailyCalorieService dailyCalorieService;
     private IdealWeightService idealWeightService;
-
     private GeneralBodyReportAssembler generalBodyReportAssembler;
 
     public GeneralBodyReport generateBodyReport(RequestGeneralBodyReportDto requestGeneralBodyReportDto) {
@@ -24,7 +23,7 @@ public class GenerateBodyReportService {
         DailyCalorie dailyCalorie = dailyCalorieService.calculateDailyCalorie(generalBodyReportAssembler.convertToDailyCalorieDto(requestGeneralBodyReportDto));
         IdealWeight idealWeight = idealWeightService.calculateIdealWeightByRobinson(generalBodyReportAssembler.convertToIdealWeightDto(requestGeneralBodyReportDto));
 
-        return generalBodyReportAssembler.convertToGeneralBodyReport(bodyFatPercentage, dailyCalorie, idealWeight);
+        return generalBodyReportAssembler.convertToGeneralBodyReport(bodyFatPercentage, dailyCalorie, idealWeight, requestGeneralBodyReportDto);
     }
 
 }

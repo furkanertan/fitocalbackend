@@ -8,7 +8,9 @@ import com.example.fitocalapp.dto.request.RequestBodyFatPercentageDto;
 import com.example.fitocalapp.dto.request.RequestDailyCalorieDto;
 import com.example.fitocalapp.dto.request.RequestGeneralBodyReportDto;
 import com.example.fitocalapp.dto.request.RequestIdealWeightDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GeneralBodyReportAssembler {
 
     public RequestBodyFatPercentageDto convertToBodyFatPercentageDto(RequestGeneralBodyReportDto requestGeneralBodyReportDto) {
@@ -45,10 +47,22 @@ public class GeneralBodyReportAssembler {
         return requestIdealWeightDto;
     }
 
-    public GeneralBodyReport convertToGeneralBodyReport(BodyFatPercentage bodyFatPercentage, DailyCalorie dailyCalorie, IdealWeight idealWeight) {
+    public GeneralBodyReport convertToGeneralBodyReport(BodyFatPercentage bodyFatPercentage, DailyCalorie dailyCalorie, IdealWeight idealWeight, RequestGeneralBodyReportDto requestGeneralBodyReportDto) {
         GeneralBodyReport generalBodyReport = new GeneralBodyReport();
 
-        // TODO: ASSEMBLE GENERAL BODY REPORT
+        generalBodyReport.setAge(requestGeneralBodyReportDto.getAge());
+        generalBodyReport.setGender(requestGeneralBodyReportDto.getGender());
+        generalBodyReport.setHeight(requestGeneralBodyReportDto.getHeight());
+        generalBodyReport.setWeight(requestGeneralBodyReportDto.getWeight());
+        generalBodyReport.setIdealWeight(idealWeight.getIdealWeight());
+        generalBodyReport.setBmi(bodyFatPercentage.getBmi());
+        generalBodyReport.setBodyType(bodyFatPercentage.getType().getBodyFatPercentageType());
+        generalBodyReport.setBodyFatPercentageRate(bodyFatPercentage.getBodyFatPercentageRate());
+        generalBodyReport.setBodyFatMass(bodyFatPercentage.getBodyFatMass());
+        generalBodyReport.setLeanBodyMass(bodyFatPercentage.getLeanBodyMass());
+        generalBodyReport.setCalorieToStaySame(dailyCalorie.getMaintainWeight());
+        generalBodyReport.setCalorieToLoseWeight(dailyCalorie.getWeightLoss());
+        generalBodyReport.setCalorieToGainWeight(dailyCalorie.getWeightGain());
 
         return generalBodyReport;
     }
