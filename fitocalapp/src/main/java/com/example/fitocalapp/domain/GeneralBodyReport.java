@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class GeneralBodyReport {
+    private int id;
     private Integer age;
     private String gender;
     private double height;

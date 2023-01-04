@@ -17,8 +17,13 @@ public class GenerateBodyReportController {
     public GenerateBodyReportController(GenerateBodyReportService generateBodyReportService) {
         this.generateBodyReportService = generateBodyReportService;
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/generateReport")
-    public ResponseEntity<GeneralBodyReport> generateReport(@RequestBody RequestGeneralBodyReportDto requestGeneralBodyReportDto) {
-        return ResponseEntity.ok(generateBodyReportService.generateBodyReport(requestGeneralBodyReportDto));
+    public ResponseEntity<GeneralBodyReport[]> generateReport(@RequestBody RequestGeneralBodyReportDto requestGeneralBodyReportDto) {
+        log.info("Generating body report");
+        GeneralBodyReport[] generalBodyReports = new GeneralBodyReport[1];
+        generalBodyReports[0] = generateBodyReportService.generateBodyReport(requestGeneralBodyReportDto);
+        return ResponseEntity.ok(generalBodyReports);
     }
 }

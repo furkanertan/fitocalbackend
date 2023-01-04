@@ -18,6 +18,7 @@ public class BodyFatPercentageController {
         this.bodyFatPercentageService = bodyFatPercentageService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/getBodyFatPercentage")
     public ResponseEntity<BodyFatPercentage> getBodyFatPercentage(@RequestBody RequestBodyFatPercentageDto requestBodyFatPercentageDto) {
         log.info("Calculating Body Fat Percentage");

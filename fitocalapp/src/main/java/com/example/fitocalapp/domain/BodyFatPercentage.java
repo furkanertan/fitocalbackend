@@ -10,6 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class BodyFatPercentage {
+    private int id;
     private double bodyFatPercentageRate;
     private BodyFatPercentageFormula formula;
     private BodyFatPercentageType type;
