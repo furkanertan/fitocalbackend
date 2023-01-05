@@ -21,7 +21,7 @@ public class BodyFatPercentageController {
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/getBodyFatPercentage")
     public ResponseEntity<BodyFatPercentage> getBodyFatPercentage(@RequestBody RequestBodyFatPercentageDto requestBodyFatPercentageDto) {
-        log.info("Calculating Body Fat Percentage");
+        log.info("Calculating Body Fat Percentage!");
 
         return ResponseEntity.ok(bodyFatPercentageService.calculateBodyFatPercentageByDeurenbergFormula(requestBodyFatPercentageDto));
     }

@@ -21,7 +21,7 @@ public class BmiController {
 
     @GetMapping("/getBmi")
     public Bmi getBmi(@RequestParam(name = "height") double height, @RequestParam(name = "weight") double weight) {
-        log.info("Calculating BMI");
+        log.info("Calculating BMI!");
 
         return bmiService.calculateBmi(height, weight);
     }

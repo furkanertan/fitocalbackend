@@ -56,7 +56,7 @@ public class GeneralBodyReportAssembler {
         generalBodyReport.setGender(requestGeneralBodyReportDto.getGender());
         generalBodyReport.setHeight(requestGeneralBodyReportDto.getHeight());
         generalBodyReport.setWeight(requestGeneralBodyReportDto.getWeight());
-        generalBodyReport.setIdealWeight(idealWeight.getIdealWeight());
+        generalBodyReport.setIdealWeight(Double.parseDouble(new DecimalFormat("##.#").format(idealWeight.getIdealWeight())));
         generalBodyReport.setBmi(Double.parseDouble(new DecimalFormat("##.#").format(bodyFatPercentage.getBmi())));
         generalBodyReport.setBodyType(bodyFatPercentage.getType().getBodyFatPercentageType());
         generalBodyReport.setBodyFatPercentageRate(Double.parseDouble(new DecimalFormat("##.#").format(bodyFatPercentage.getBodyFatPercentageRate())));

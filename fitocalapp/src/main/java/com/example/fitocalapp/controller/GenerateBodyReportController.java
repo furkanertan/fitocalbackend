@@ -5,7 +5,11 @@ import com.example.fitocalapp.dto.request.RequestGeneralBodyReportDto;
 import com.example.fitocalapp.service.GenerateBodyReportService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @Slf4j
@@ -21,7 +25,7 @@ public class GenerateBodyReportController {
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/generateReport")
     public ResponseEntity<GeneralBodyReport[]> generateReport(@RequestBody RequestGeneralBodyReportDto requestGeneralBodyReportDto) {
-        log.info("Generating body report");
+        log.info("Generating body report!");
         GeneralBodyReport[] generalBodyReports = new GeneralBodyReport[1];
         generalBodyReports[0] = generateBodyReportService.generateBodyReport(requestGeneralBodyReportDto);
         return ResponseEntity.ok(generalBodyReports);
